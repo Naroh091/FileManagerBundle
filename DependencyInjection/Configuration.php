@@ -59,7 +59,7 @@ class Configuration implements ConfigurationInterface
                                 ->end()
                             ->end()
                             ->arrayNode('permissions')
-                                ->prototype('array')
+                                ->children()
                                     ->scalarNode('upload_files')->defaultValue('ROLE_USER')->end()
                                     ->scalarNode('remove_files')->defaultValue('ROLE_USER')->end()
                                     ->scalarNode('rename_files')->defaultValue('ROLE_USER')->end()
