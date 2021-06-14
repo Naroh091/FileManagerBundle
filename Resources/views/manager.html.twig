@@ -64,7 +64,7 @@
                     <span class="far fa-folder-open"></span>
                     <span class="bar-action">{{ 'button.add.folder'|trans }}</span>
                 </button>
-                {% if fileManager.parent %}
+                {% if fileManager.parent and is_granted(permissions.remove_folders)   %}
                     <button type="button"
                             class="btn btn-sm btn-danger btn-action js-delete-modal"
                             data-trigger="click"
@@ -78,18 +78,20 @@
                         <span class="bar-action">{{ 'button.delete.current'|trans }}</span>
                     </button>
                 {% endif %}
-                <a id="js-delete-multiple-modal"
-                   class="btn btn-sm btn-danger btn-action disabled"
-                   type="button"
-                   data-trigger="click"
-                   data-container="body"
-                   data-toggle="modal"
-                   data-target="#js-confirm-delete"
-                   data-placement="left"
-                   data-html="true">
-                    <span class="far fa-check-square"></span>
-                    <span class="bar-action">{{ 'button.delete.selected'|trans }}</span>
-                </a>
+                {% if is_granted(permissions.remove_files) %}
+                    <a id="js-delete-multiple-modal"
+                       class="btn btn-sm btn-danger btn-action disabled"
+                       type="button"
+                       data-trigger="click"
+                       data-container="body"
+                       data-toggle="modal"
+                       data-target="#js-confirm-delete"
+                       data-placement="left"
+                       data-html="true">
+                        <span class="far fa-check-square"></span>
+                        <span class="bar-action">{{ 'button.delete.selected'|trans }}</span>
+                    </a>
+                {% endif %}
             {% endblock %}
             {% block display %}
                 <div class="btn-group pull-right">
