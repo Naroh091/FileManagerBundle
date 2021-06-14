@@ -65,6 +65,8 @@ class Configuration implements ConfigurationInterface
                                     ->scalarNode('rename_files')->defaultValue('ROLE_USER')->end()
                                     ->scalarNode('create_folders')->defaultValue('ROLE_USER')->end()
                                     ->scalarNode('remove_folders')->defaultValue('ROLE_USER')->end()
+                                ->end()
+                            ->end()
                         ->end()
                     ->end()
                 ->end()
